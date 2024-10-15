@@ -1,0 +1,318 @@
+!DOCTYPE html
+html lang=pt-br
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleNegociação - Brasil Card Visatitle
+    style
+        body {
+            font-family Arial, sans-serif;
+            margin 0;
+            padding 0;
+            background-color #f0f8ff;  Azul Céu 
+            color #333;
+        }
+
+         Estilos do Cabeçalho 
+        header {
+            background-color #1e90ff;  Azul Céu Intenso 
+            padding 20px;
+            text-align center;
+            color white;
+            position sticky;
+            top 0;
+            z-index 10;
+            box-shadow 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+         Estilos do Menu de Navegação 
+        nav {
+            display flex;
+            justify-content center;
+            background-color #4682b4;
+            padding 15px;
+            position sticky;
+            top 60px;
+            z-index 9;
+        }
+
+        nav a {
+            color white;
+            margin 0 20px;
+            text-decoration none;
+            font-weight bold;
+            cursor pointer;
+            position relative;
+            transition transform 0.3s;
+        }
+
+        nav ahover {
+            text-decoration underline;
+            transform scale(1.1);
+        }
+
+         Estilo do Conteúdo 
+        .tab-content {
+            display none;
+            padding 30px;
+            background-color #e6f7ff;
+            text-align center;
+            opacity 0;
+            transition opacity 0.5s ease, transform 0.5s ease;
+            transform translateY(30px);
+        }
+
+        .tab-content.active {
+            display block;
+            opacity 1;
+            transform translateY(0);
+        }
+
+         Botão de links 
+        .link-button {
+            display inline-block;
+            padding 15px 25px;
+            margin 20px 10px;
+            background-color #1e90ff;
+            color white;
+            text-decoration none;
+            font-weight bold;
+            border-radius 5px;
+            transition background-color 0.3s, transform 0.3s;
+        }
+
+        .link-buttonhover {
+            background-color #4682b4;
+            transform scale(1.05);
+        }
+
+         Links normais 
+        a {
+            color blue;
+            text-decoration none;
+        }
+
+        ahover {
+            text-decoration underline;
+        }
+
+         Rodapé 
+        footer {
+            background-color #4682b4;
+            padding 20px;
+            text-align center;
+            color white;
+        }
+
+         Botão de compartilhar 
+        .copy-link-button {
+            background-color #1e90ff;
+            color white;
+            border none;
+            padding 10px 20px;
+            border-radius 5px;
+            cursor pointer;
+            transition background-color 0.3s;
+        }
+
+        .copy-link-buttonhover {
+            background-color #4682b4;
+        }
+
+         Estilo de layout das colunas na aba Consolidado 
+        .consolidado-container {
+            display flex;
+            justify-content space-between;
+            align-items flex-start;
+            padding 20px;
+        }
+
+        .col {
+            width 48%;
+            background-color #d3eaf7;
+            padding 20px;
+            border-radius 10px;
+            box-shadow 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align center;
+        }
+
+        .col img {
+            width 100%;
+            height auto;
+            margin-top 10px;
+            border-radius 5px;
+        }
+
+        .col h3 {
+            margin-bottom 15px;
+            color #1e90ff;
+        }
+
+        .col p {
+            color #333;
+        }
+
+         Sub-Abas para Acesso a Informações 
+        .sub-tab-content {
+            display none;
+            padding 20px;
+            background-color #f0f8ff;
+            text-align center;
+        }
+
+        .sub-tab-content.active {
+            display block;
+        }
+
+        .sub-nav {
+            display flex;
+            justify-content center;
+            margin-top 20px;
+            margin-bottom 20px;
+        }
+
+        .sub-nav a {
+            margin 0 15px;
+            padding 10px 20px;
+            background-color #4682b4;
+            color white;
+            text-decoration none;
+            border-radius 5px;
+            transition background-color 0.3s;
+        }
+
+        .sub-nav ahover {
+            background-color #1e90ff;
+        }
+    style
+    script
+        function showTabContent(tabId) {
+            var contents = document.getElementsByClassName('tab-content');
+            for (var i = 0; i  contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            var activeContent = document.getElementById(tabId);
+            activeContent.classList.add('active');
+        }
+
+        function copyLink() {
+            var dummy = document.createElement('textarea');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;  URL da página
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            alert('Link copiado para a área de transferência!');
+        }
+
+        function showSubTabContent(subTabId) {
+            var subContents = document.getElementsByClassName('sub-tab-content');
+            for (var i = 0; i  subContents.length; i++) {
+                subContents[i].classList.remove('active');
+            }
+            var activeSubContent = document.getElementById(subTabId);
+            activeSubContent.classList.add('active');
+        }
+    script
+head
+body
+
+    !-- Cabeçalho --
+    header
+        h1Negociação  Cobrançah1
+    header
+
+    !-- Menu de Navegação --
+    nav
+        a onclick=showTabContent('inicio')Inícioa
+        a onclick=showTabContent('hora-a-hora')Hora a Horaa
+        a onclick=showTabContent('qualidade')Qualidadea
+        a onclick=showTabContent('consolidado')Consolidadoa
+        a onclick=showTabContent('acesso-info')Acesso a Informaçõesa
+    nav
+
+    !-- Conteúdo das Abas --
+    div id=inicio class=tab-content active
+        h1Inícioh1
+        div
+            a href=httpsbcardapp01.grupoadrianocobuccio.com.br9100vosagent target=_blank class=link-buttonAcessar Vosa
+            a href=httpsbackoffice.bcarddigital.com.bradminhome target=_blank class=link-buttonAcessar BKOa
+            a href=httpswww.google.comurlq=https%3A%2F%2Fback.pontotel.com.br%2Fapi%2Fredirect-saml%2Fbateponto%2Fbrasilcard-pontotel&sa=D&sntz=1&usg=AOvVaw3kUPN-qId0m2P6JQXPbcDK target=_blank class=link-buttonAcessar Pontotela
+            a href=https10.20.225.35PortalCDT(S(fhafub454dukv5nv1tpzi155))Pagesindex.aspx target=_blank class=link-buttonAcessar Csa
+        div
+
+        !-- Botão de compartilhar link --
+        div
+            button class=copy-link-button onclick=copyLink()Compartilhar Link do Sitebutton
+        div
+    div
+
+    div id=hora-a-hora class=tab-content
+        h2Hora a Horah2
+        div
+            a href=httpsdocs.google.comformsde1FAIpQLSd4q0mpHN58o0RCM0AI3GZO8Vc7W-EH_gTkXgoSMFGtm6JdAAviewformpli=1&pli=1 target=_blank class=link-buttonAcordos - Negociação e Cobrançaa
+            a href=httpslookerstudio.google.comreportinge77cc9d2-5839-4033-bff3-f83b1980b8b9page4tctB target=_blank class=link-buttonVer Relatórios de Performancea
+        div
+    div
+
+    div id=qualidade class=tab-content
+        h2Qualidadeh2
+        a href=httpsdocs.google.comspreadsheetsd1Nwo5FU6cHlw1y0BYbJdEDdXrdaVZ84Xeg4Tw3ZY8editgid=1777823094#gid=1777823094 target=_blank class=link-buttonAcessar Planilha de Qualidadea
+    div
+
+    div id=consolidado class=tab-content
+        h2Consolidadoh2
+        div class=consolidado-container
+            div class=col
+                h3Receptivoh3
+                pDados e relatórios de atendimento receptivo.p
+                img src=CUsersFRANCINALDO.SANTOSDownloadsimage_2024_10_11T20_20_36_070Z.png alt=Imagem Receptivo
+            div
+            div class=col
+                h3Cobrançah3
+                pDados e relatórios de cobrança.p
+                img src=CUsersFRANCI~1.SANAppDataLocalTempf0f4aa2998bc6a8dd1a1ffa55271e97c79b26114e67d9dd359c08751ecb57754.png alt=Imagem Cobrança
+            div
+        div
+    div
+
+    div id=acesso-info class=tab-content
+        h2Acesso a Informaçõesh2
+
+        !-- Sub-Abas --
+        div class=sub-nav
+            a onclick=showSubTabContent('escala')Escalaa
+            a onclick=showSubTabContent('campanha')Campanhaa
+            a onclick=showSubTabContent('baixas')Baixas de Pagamentosa
+            a onclick=showSubTabContent('avisos')Avisos  Informaçõesa
+        div
+
+        !-- Conteúdo das Sub-Abas --
+        div id=escala class=sub-tab-content
+            h3Escalah3
+            pInformações sobre a escala de trabalho.p
+        div
+
+        div id=campanha class=sub-tab-content
+            h3Campanhah3
+            pInformações sobre a campanha atual.p
+            img src=CUsersFRANCI~1.SANAppDataLocalTempbcd427bb91275db8c22637532e3eded57eb41322d5a19bfb5cdaa2485a201a1a.png alt=Imagem Campanha
+        div
+
+        div id=baixas class=sub-tab-content
+            h3Baixas de Pagamentosh3
+            pInformações sobre as baixas de pagamentos.p
+        div
+
+        div id=avisos class=sub-tab-content
+            h3Avisos  Informaçõesh3
+            pÚltimos avisos e informações importantes.p
+        div
+    div
+
+    !-- Rodapé --
+    footer
+        p&copy; 2024 Brasil Card Visa - Todos os direitos reservados.p
+    footer
+body
+html
